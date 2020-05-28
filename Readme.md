@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url]
 
 * Студент: [Юлия Щинова](https://up.htmlacademy.ru/javascript/20/user/967159).
-* Наставник: `Неизвестно`.
+* Наставник: Евгений Лепёшкин.
 
 ---
 

@@ -59,7 +59,7 @@ var addAdverts = function () {
 
 addAdverts();
 
-var pins = document.querySelector('.map__pins');
+var pins = mapActive.querySelector('.map__pins');
 var pinsTemplate = document.querySelector('#pin').content.querySelector('.map__pin');
 
 var createAdvert = function (pin) {

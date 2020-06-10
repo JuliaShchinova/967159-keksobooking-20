@@ -1,14 +1,12 @@
 'use strict';
 
 var COUNT = 8;
-var PIN_WIDTH = 40;
-var PIN_HEIGHT = 40;
+var PIN_WIDTH = 50;
+var PIN_HEIGHT = 70;
 
 var adverts = [];
 
 var getRandomInt = function (min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
@@ -27,12 +25,15 @@ var shaffleArray = function (array) {
   return array;
 };
 
+var mapActive = document.querySelector('.map');
+mapActive.classList.remove('map--faded');
+
 var addAdverts = function () {
   for (var i = 0; i < COUNT; i++) {
     adverts.push(
         {
           'author': {
-            'avatar': 'img/avatars/user' + (i + 1) + '.png'
+            'avatar': 'img/avatars/user0' + (i + 1) + '.png'
           },
           'offer': {
             'title': 'Уютное жилье',
@@ -48,40 +49,39 @@ var addAdverts = function () {
             'photos': shaffleArray(photos).slice(0, getRandomInt(0, photos.length))
           },
           'location': {
-            'x': getRandomInt(1, 600),
+            'x': getRandomInt(1, mapActive.offsetWidth),
             'y': getRandomInt(130, 630)
           }
-        });
+        }
+    );
   }
 };
 
-var mapActive = document.querySelector('.map');
-mapActive.classList.remove('map--faded');
+addAdverts();
 
 var pins = document.querySelector('.map__pins');
 var pinsTemplate = document.querySelector('#pin').content.querySelector('.map__pin');
 
-var createAdvert = function (addAdvert) {
+var createAdvert = function (pin) {
   var pinElement = pinsTemplate.cloneNode(true);
 
   var pinImage = pinElement.querySelector('img');
-  pinImage.src = adverts.author.avatar;
-  pinImage.alt = adverts.offer.title;
+  pinImage.src = pin.author.avatar;
+  pinImage.alt = pin.offer.title;
 
-  pinElement.style.left = adverts.location.x - PIN_WIDTH / 2 + 'px';
-  pinElement.style.top = adverts.location.y - PIN_HEIGHT + 'px';
+  pinElement.style.left = pin.location.x - PIN_WIDTH / 2 + 'px';
+  pinElement.style.top = pin.location.y - PIN_HEIGHT + 'px';
 
   return pinElement;
 };
 
-var renderAdvert = function () {
+var renderAdverts = function () {
   var fragment = document.createDocumentFragment();
   for (var i = 0; i < adverts.length; i++) {
-    fragment.appendChild(createAdvert(addAdverts[i]));
+    fragment.appendChild(createAdvert(adverts[i]));
   }
 
   pins.appendChild(fragment);
 };
 
-renderAdvert();
-
+renderAdverts();

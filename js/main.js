@@ -127,11 +127,15 @@ var createCards = function (card) {
   var cardPhotos = cardElement.querySelector('.popup__photos');
   var cardPhotosImage = cardPhotos.querySelector('img');
 
-  for (var j = 0; j < card.offer.photos.length; j++) {
-
-    var cardPhoto = cardPhotosImage.cloneNode(true);
-    cardPhotos.appendChild(cardPhoto);
-    cardPhotosImage.src = card.offer.photos[j];
+  if (card.offer.photos.length > 0) {
+    cardPhotosImage.src = card.offer.photos[0];
+    for (var j = 1; j < card.offer.photos.length; j++) {
+      var cardPhoto = cardPhotosImage.cloneNode(true);
+      cardPhotosImage.src = card.offer.photos[j];
+      cardPhotos.appendChild(cardPhoto);
+    }
+  } else {
+    cardPhotos.remove();
   }
 
   var cardAvatar = cardElement.querySelector('.popup__avatar');

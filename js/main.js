@@ -116,10 +116,6 @@ var createCards = function (card) {
   var cardFeatures = cardElement.querySelector('.popup__features');
   var cardFeaturesItem = cardFeatures.querySelectorAll('.popup__feature');
   for (var i = 0; i < cardFeaturesItem.length; i++) {
-    // var cardFeatureClass = 'popup__feature--' + card.offer.features[i];
-    // if (!cardFeaturesItem[i].classList.contains(cardFeatureClass)) {
-    //   cardFeaturesItem[i].remove();
-
     if (card.offer.features.indexOf(cardFeaturesItem[i].classList[1].replace('popup__feature--', '')) < 0) {
       cardFeaturesItem[i].remove();
     }

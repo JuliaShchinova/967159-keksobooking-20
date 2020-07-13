@@ -21,7 +21,7 @@
     window.pin.renderAdverts();
     window.form.setFieldsetState();
 
-    window.form.adForm.classList.remove('ad-form--disabled');
+    window.form.ad.classList.remove('ad-form--disabled');
   };
 
   window.pin.mapPinMain.addEventListener('mousedown', function (evt) {

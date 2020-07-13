@@ -23,7 +23,7 @@
       pinElement.classList.add('map__pin--active');
       window.card.removePopup();
 
-      window.map.insertBefore(window.card.createCard(pin), window.card.mapFilters);
+      window.map.insertBefore(window.card.create(pin), window.card.mapFilters);
     });
 
     return pinElement;

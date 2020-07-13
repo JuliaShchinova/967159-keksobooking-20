@@ -87,7 +87,7 @@
 
   var card = {
     mapFilters: mapFilters,
-    createCard: createCard,
+    create: createCard,
     removePopup: removePopup,
     removeActivePin: removeActivePin
   };

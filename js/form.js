@@ -68,7 +68,7 @@
 
 
   var form = {
-    adForm: adForm,
+    ad: adForm,
     changeAddress: changeAddress,
     onRoomSelectChange: onRoomSelectChange,
     onTypeSelectChange: onTypeSelectChange,

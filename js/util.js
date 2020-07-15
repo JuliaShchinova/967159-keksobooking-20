@@ -14,10 +14,8 @@
     }
   };
 
-  var util = {
+  window.util = {
     isEscEvent: isEscEvent,
     isEnterEvent: isEnterEvent
   };
-
-  window.util = util;
 })();

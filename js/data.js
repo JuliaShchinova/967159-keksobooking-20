@@ -24,37 +24,37 @@
     return array;
   };
 
-  var addAdverts = function () {
-    for (var i = 0; i < COUNT; i++) {
-      adverts.push(
-          {
-            'author': {
-              'avatar': 'img/avatars/user0' + (i + 1) + '.png'
-            },
-            'offer': {
-              'title': 'Уютное жилье',
-              'address': getRandomInt(1, 600) + ',' + getRandomInt(130, 630),
-              'price': getRandomInt(0, 1000000),
-              'type': type[getRandomInt(0, type.length - 1)],
-              'rooms': getRandomInt(0, 100),
-              'guests': getRandomInt(0, 3),
-              'checkin': times[getRandomInt(0, times.length - 1)],
-              'checkout': times[getRandomInt(0, times.length - 1)],
-              'features': shaffleArray(features).slice(0, getRandomInt(0, features.length)),
-              'description': 'Описание жилья',
-              'photos': shaffleArray(photos).slice(0, getRandomInt(0, photos.length))
-            },
-            'location': {
-              'x': getRandomInt(1, map.offsetWidth),
-              'y': getRandomInt(130, 630)
-            }
-          }
-      );
-    }
-  };
+  // var addAdverts = function () {
+  //   for (var i = 0; i < COUNT; i++) {
+  //     adverts.push(
+  //         {
+  //           'author': {
+  //             'avatar': 'img/avatars/user0' + (i + 1) + '.png'
+  //           },
+  //           'offer': {
+  //             'title': 'Уютное жилье',
+  //             'address': getRandomInt(1, 600) + ',' + getRandomInt(130, 630),
+  //             'price': getRandomInt(0, 1000000),
+  //             'type': type[getRandomInt(0, type.length - 1)],
+  //             'rooms': getRandomInt(0, 100),
+  //             'guests': getRandomInt(0, 3),
+  //             'checkin': times[getRandomInt(0, times.length - 1)],
+  //             'checkout': times[getRandomInt(0, times.length - 1)],
+  //             'features': shaffleArray(features).slice(0, getRandomInt(0, features.length)),
+  //             'description': 'Описание жилья',
+  //             'photos': shaffleArray(photos).slice(0, getRandomInt(0, photos.length))
+  //           },
+  //           'location': {
+  //             'x': getRandomInt(1, map.offsetWidth),
+  //             'y': getRandomInt(130, 630)
+  //           }
+  //         }
+  //     );
+  //   }
+  // };
 
   window.data = {
     adverts: adverts,
-    addAdverts: addAdverts
+    // addAdverts: addAdverts
   };
 })();

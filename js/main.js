@@ -4,7 +4,7 @@
   var BUTTON_EVT = window.constants.BUTTON_EVT;
   var map = window.map.element;
   var mainPin = window.pin.mainElement;
-  var addAdverts = window.data.addAdverts;
+  // var addAdverts = window.data.addAdverts;
   var changeAddress = window.form.changeAddress;
   var onRoomSelectChange = window.form.onRoomSelectChange;
   var onTypeSelectChange = window.form.onTypeSelectChange;
@@ -15,7 +15,8 @@
   var addForm = window.form.ad;
   var isEnterEvent = window.util.isEnterEvent;
 
-  addAdverts();
+  // addAdverts();
+  window.backend.load();
 
   var setFormPreferences = function () {
     changeAddress();

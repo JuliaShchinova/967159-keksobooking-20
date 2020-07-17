@@ -46,7 +46,18 @@
         min: 130,
         max: 630
       }
-    }
+    },
+
+    URL: {
+      LOAD: 'https://javascript.pages.academy/keksobooking/data',
+      UP_LOAD: 'https://javascript.pages.academy/keksobooking/'
+    },
+
+    statusCode: {
+      OK: 200
+    },
+
+    TIMEOUT_IN_MS: 10000
   };
 
   window.constants = constants;

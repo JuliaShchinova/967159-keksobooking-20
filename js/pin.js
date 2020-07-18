@@ -8,7 +8,6 @@
   var removePopup = window.card.removePopup;
   var createCard = window.card.create;
   var mapFilters = window.card.mapFilters;
-  var adverts = window.data.adverts;
 
   var mapPinMain = map.querySelector('.map__pin--main');
 
@@ -39,10 +38,10 @@
   };
 
 
-  var renderAdverts = function () {
+  var renderAdverts = function (offers) {
     var fragment = document.createDocumentFragment();
-    for (var i = 0; i < adverts.length; i++) {
-      fragment.appendChild(createAdvert(adverts[i]));
+    for (var i = 0; i < offers.length; i++) {
+      fragment.appendChild(createAdvert(offers[i]));
     }
 
     pins.appendChild(fragment);

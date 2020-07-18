@@ -4,7 +4,7 @@
   var map = window.map.element;
 
   var constants = {
-    COUNT: 8,
+    MAX_COUNT: 5,
 
     PIN_WIDTH: 50,
     PIN_HEIGHT: 70,
@@ -47,17 +47,6 @@
         max: 630
       }
     },
-
-    URL: {
-      LOAD: 'https://javascript.pages.academy/keksobooking/data',
-      UP_LOAD: 'https://javascript.pages.academy/keksobooking/'
-    },
-
-    statusCode: {
-      OK: 200
-    },
-
-    TIMEOUT_IN_MS: 10000
   };
 
   window.constants = constants;

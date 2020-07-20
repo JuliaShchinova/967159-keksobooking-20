@@ -15,7 +15,11 @@
   };
 
   var onEscPress = function (evt) {
-    window.util.isEscEvent(evt, errorMessageClose);
+    if (onSuccessSend && document.querySelector('.success')) {
+      window.util.isEscEvent(evt, successMessageClose);
+    } else if (onErrorSend && document.querySelector('.error')) {
+      window.util.isEscEvent(evt, errorMessageClose);
+    }
   };
 
   var errorMessageClose = function () {
@@ -25,7 +29,25 @@
     document.removeEventListener('mousedown', errorMessageClose);
   };
 
+
+  var onSuccessSend = function () {
+    var successTemplate = document.querySelector('#success').content.querySelector('.success');
+    var successElement = successTemplate.cloneNode(true);
+    mainContainer.appendChild(successElement);
+
+    document.addEventListener('keydown', onEscPress);
+    document.addEventListener('mousedown', successMessageClose);
+  };
+
+  var successMessageClose = function () {
+    var successElement = document.querySelector('.success');
+    successElement.remove();
+    document.removeEventListener('keydown', onEscPress);
+    document.removeEventListener('mousedown', successMessageClose);
+  };
+
   window.message = {
-    onErrorSend: onErrorSend
+    onErrorSend: onErrorSend,
+    onSuccessSend: onSuccessSend
   };
 })();

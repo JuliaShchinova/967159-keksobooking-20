@@ -28,10 +28,8 @@
   setFormPreferences();
 
   var onSuccess = function (data) {
-    offers = data.map(function (item) {
-      if (item.offer) {
-        return item;
-      }
+    offers = data.slice().filter(function (item) {
+      return Object.keys(item.offer).length !== 0;
     });
 
     window.pin.renderAdverts(offers.slice(0, MAX_COUNT));

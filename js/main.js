@@ -36,6 +36,8 @@
 
     map.classList.remove('map--faded');
 
+    // window.filter();
+
     setFieldsetState();
 
     adForm.classList.remove('ad-form--disabled');

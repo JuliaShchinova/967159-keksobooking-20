@@ -36,8 +36,6 @@
 
     map.classList.remove('map--faded');
 
-    // window.filter();
-
     setFieldsetState();
 
     adForm.classList.remove('ad-form--disabled');
@@ -87,6 +85,9 @@
   mainPin.addEventListener('keydown', onEnterKeydown);
 
   window.main = {
-    deactivatePage: deactivatePage
+    deactivatePage: deactivatePage,
+    offers: function () {
+      return offers;
+    }
   };
 })();

@@ -10,22 +10,14 @@
     errorElement.querySelector('.error__button').addEventListener('click', onErrorMessageClick);
     mainContainer.appendChild(errorElement);
 
-    document.addEventListener('keydown', onEscKeydown);
+    document.addEventListener('keydown', onErrorMessageEscKeydown);
     document.addEventListener('mousedown', onErrorMessageMouseDown);
-  };
-
-  var onEscKeydown = function (evt) {
-    if (onSuccessSend && document.querySelector('.success')) {
-      window.util.isEscEvent(evt, onSuccessMessageEscKeydown);
-    } else if (onErrorSend && document.querySelector('.error')) {
-      window.util.isEscEvent(evt, onErrorMessageEscKeydown);
-    }
   };
 
   var errorMessageClose = function () {
     var errorElement = document.querySelector('.error');
     errorElement.remove();
-    document.removeEventListener('keydown', onEscKeydown);
+    document.removeEventListener('keydown', onErrorMessageEscKeydown);
     document.removeEventListener('mousedown', onErrorMessageMouseDown);
   };
 
@@ -37,8 +29,8 @@
     errorMessageClose();
   };
 
-  var onErrorMessageEscKeydown = function () {
-    errorMessageClose();
+  var onErrorMessageEscKeydown = function (evt) {
+    window.util.isEscEvent(evt, errorMessageClose);
   };
 
   var onSuccessSend = function () {
@@ -46,14 +38,14 @@
     var successElement = successTemplate.cloneNode(true);
     mainContainer.appendChild(successElement);
 
-    document.addEventListener('keydown', onEscKeydown);
+    document.addEventListener('keydown', onSuccessMessageEscKeydown);
     document.addEventListener('mousedown', onSuccessMessageMouseDown);
   };
 
   var successMessageClose = function () {
     var successElement = document.querySelector('.success');
     successElement.remove();
-    document.removeEventListener('keydown', onEscKeydown);
+    document.removeEventListener('keydown', onSuccessMessageEscKeydown);
     document.removeEventListener('mousedown', onSuccessMessageMouseDown);
   };
 
@@ -61,8 +53,8 @@
     successMessageClose();
   };
 
-  var onSuccessMessageEscKeydown = function () {
-    successMessageClose();
+  var onSuccessMessageEscKeydown = function (evt) {
+    window.util.isEscEvent(evt, successMessageClose);
   };
 
   window.message = {

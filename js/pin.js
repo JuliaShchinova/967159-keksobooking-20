@@ -1,8 +1,8 @@
 'use strict';
 
 (function () {
-  var PIN_WIDTH = window.constants.PIN_WIDTH;
-  var PIN_HEIGHT = window.constants.PIN_HEIGHT;
+  var PIN_WIDTH = window.defaults.PIN_WIDTH;
+  var PIN_HEIGHT = window.defaults.PIN_HEIGHT;
   var MAIN_PIN_START_LEFT = 570;
   var MAIN_PIN_START_TOP = 375;
   var map = window.map.element;

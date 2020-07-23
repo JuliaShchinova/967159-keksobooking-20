@@ -3,7 +3,7 @@
 (function () {
   var map = window.map.element;
   var isEscEvent = window.util.isEscEvent;
-  var types = window.constants.types;
+  var types = window.defaults.types;
 
   var mapFilters = map.querySelector('.map__filters-container');
   var cardTemplate = document.querySelector('#card').content.querySelector('.map__card');

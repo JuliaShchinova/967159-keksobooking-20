@@ -1,10 +1,10 @@
 'use strict';
 
 (function () {
-  var MAIN_PIN_WIDTH = window.constants.MAIN_PIN_WIDTH;
-  var MAIN_PIN_HEIGHT = window.constants.MAIN_PIN_HEIGHT;
-  var MAIN_PIN_HEIGHT_ACTIVE = window.constants.MAIN_PIN_HEIGHT_ACTIVE;
-  var types = window.constants.types;
+  var MAIN_PIN_WIDTH = window.defaults.MAIN_PIN_WIDTH;
+  var MAIN_PIN_HEIGHT = window.defaults.MAIN_PIN_HEIGHT;
+  var MAIN_PIN_HEIGHT_ACTIVE = window.defaults.MAIN_PIN_HEIGHT_ACTIVE;
+  var types = window.defaults.types;
   var mainPin = window.pin.mainElement;
   var formAddress = document.querySelector('#address');
   var adForm = document.querySelector('.ad-form');

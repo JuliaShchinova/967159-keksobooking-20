@@ -7,26 +7,38 @@
     var errorTemplate = document.querySelector('#error').content.querySelector('.error');
     var errorElement = errorTemplate.cloneNode(true);
     errorElement.querySelector('.error__message').textContent = message;
-    errorElement.querySelector('.error__button').addEventListener('click', errorMessageClose);
+    errorElement.querySelector('.error__button').addEventListener('click', onErrorMessageClick);
     mainContainer.appendChild(errorElement);
 
-    document.addEventListener('keydown', onEscPress);
-    document.addEventListener('mousedown', errorMessageClose);
+    document.addEventListener('keydown', onEscKeydown);
+    document.addEventListener('mousedown', onErrorMessageMouseDown);
   };
 
-  var onEscPress = function (evt) {
+  var onEscKeydown = function (evt) {
     if (onSuccessSend && document.querySelector('.success')) {
-      window.util.isEscEvent(evt, successMessageClose);
+      window.util.isEscEvent(evt, onSuccessMessageEscKeydown);
     } else if (onErrorSend && document.querySelector('.error')) {
-      window.util.isEscEvent(evt, errorMessageClose);
+      window.util.isEscEvent(evt, onErrorMessageEscKeydown);
     }
   };
 
   var errorMessageClose = function () {
     var errorElement = document.querySelector('.error');
     errorElement.remove();
-    document.removeEventListener('keydown', onEscPress);
-    document.removeEventListener('mousedown', errorMessageClose);
+    document.removeEventListener('keydown', onEscKeydown);
+    document.removeEventListener('mousedown', onErrorMessageMouseDown);
+  };
+
+  var onErrorMessageClick = function () {
+    errorMessageClose();
+  };
+
+  var onErrorMessageMouseDown = function () {
+    errorMessageClose();
+  };
+
+  var onErrorMessageEscKeydown = function () {
+    errorMessageClose();
   };
 
   var onSuccessSend = function () {
@@ -34,15 +46,23 @@
     var successElement = successTemplate.cloneNode(true);
     mainContainer.appendChild(successElement);
 
-    document.addEventListener('keydown', onEscPress);
-    document.addEventListener('mousedown', successMessageClose);
+    document.addEventListener('keydown', onEscKeydown);
+    document.addEventListener('mousedown', onSuccessMessageMouseDown);
   };
 
   var successMessageClose = function () {
     var successElement = document.querySelector('.success');
     successElement.remove();
-    document.removeEventListener('keydown', onEscPress);
-    document.removeEventListener('mousedown', successMessageClose);
+    document.removeEventListener('keydown', onEscKeydown);
+    document.removeEventListener('mousedown', onSuccessMessageMouseDown);
+  };
+
+  var onSuccessMessageMouseDown = function () {
+    successMessageClose();
+  };
+
+  var onSuccessMessageEscKeydown = function () {
+    successMessageClose();
   };
 
   window.message = {

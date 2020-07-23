@@ -85,12 +85,12 @@
     window.main.deactivatePage();
   };
 
-  var sendForm = function (evt) {
+  var onFormSubmit = function (evt) {
     evt.preventDefault();
     window.backend.save(onSuccess, onError, new FormData(adForm));
   };
 
-  adForm.addEventListener('submit', sendForm);
+  adForm.addEventListener('submit', onFormSubmit);
 
   addFormReset.addEventListener('click', function (evt) {
     evt.preventDefault();

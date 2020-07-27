@@ -43,9 +43,10 @@
 
   var renderAdverts = function (offers) {
     var fragment = document.createDocumentFragment();
-    for (var i = 0; i < offers.length; i++) {
-      fragment.appendChild(createAdvert(offers[i]));
-    }
+
+    offers.forEach(function (offer) {
+      fragment.appendChild(createAdvert(offer));
+    });
 
     pins.appendChild(fragment);
   };

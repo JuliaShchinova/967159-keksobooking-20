@@ -61,6 +61,7 @@
     onTypeSelectChange();
     window.pin.setStartPosition();
     changeAddress();
+    window.preview.resetPhoto();
     window.card.removePopup();
     window.map.deactivateMap();
     window.pin.remove();
